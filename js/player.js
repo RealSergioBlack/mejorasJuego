@@ -30,6 +30,9 @@ class Player extends Phaser.Physics.Arcade.Sprite
             repeat: -1
         });
         
+		this.body.width = 23;  //Ajuste del tamaño collider (body) para que encaje con el sprite del jugador
+        this.body.height = 50;
+        this.body.setOffset(24,16);
         
     }
 
@@ -65,4 +68,5 @@ class Player extends Phaser.Physics.Arcade.Sprite
         else
             this.play('idle', true);
     }
+}
 }

@@ -1,3 +1,6 @@
+/**
+ * Clase Player y su funcionalidad
+ */
 class Player extends Phaser.Physics.Arcade.Sprite
 {
     constructor(scene,x,y)
@@ -6,13 +9,13 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.scene = scene;
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
-        //continuación
         this.cursor = this.scene.input.keyboard.createCursorKeys();
        
 
+        // corregido el player tiene 16 animaciones, no 18, ya no se lanza el warning :)
         this.anims.create({
             key: 'walk',
-            frames: this.scene.anims.generateFrameNames('sprites_jugador', { start: 1, end: 18, prefix: 'walk-' }),
+            frames: this.scene.anims.generateFrameNames('sprites_jugador', { start: 1, end: 16, prefix: 'walk-' }),
             frameRate: 10,
             repeat: -1
         });

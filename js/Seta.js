@@ -11,14 +11,8 @@ class Seta extends Phaser.Physics.Arcade.Sprite
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
         this.body.allowGravity = false;
-        // añadirmos puntos que vale coger la seta
+        // añadimos puntos que vale coger la seta
         this.points = 1;
-    }
-
-
-    update(time,delta)
-    {
-
     }
 
     /**
@@ -49,4 +43,5 @@ class Seta extends Phaser.Physics.Arcade.Sprite
     OnCollisionEnter(seta, player) {
         seta.processSetaColision();
     }
+    
 }

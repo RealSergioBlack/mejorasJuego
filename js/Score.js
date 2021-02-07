@@ -40,7 +40,4 @@ class Score {
         this.scene.scoreText.setColor('#00f');
     }
 
-    update() {
-
-    }
 }

@@ -57,7 +57,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
         if (this.cursor.space.isDown && this.body.onFloor()) {
             
-            this.setVelocityY(-10*delta);
+            this.setVelocityY(-20*delta);
         }
 
 
@@ -68,5 +68,4 @@ class Player extends Phaser.Physics.Arcade.Sprite
         else
             this.play('idle', true);
     }
-}
 }

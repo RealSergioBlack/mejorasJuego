@@ -1,8 +1,16 @@
+/**
+ * Clase ResourceLoader
+ * Define y carga recursos en la escena como el fondo, los tiles del mapa de tiles o el sprite del jugador.
+ */
 class ResourceLoader {
+    
     constructor (scene) {
         this.scene = scene
     }
 
+    /**
+     * Carga los recursos en la escena.
+     */
     loadResources () {
         // El cargado de los recursos de imagenes quiza pueda añadirse directamente en
         // el constructor, en este caso lo añado en este metodo

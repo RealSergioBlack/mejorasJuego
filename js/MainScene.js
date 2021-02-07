@@ -1,5 +1,12 @@
+/**
+ * Clase MainScene
+ * Representa la escena principal.
+ */
 class MainScene extends Phaser.Scene
 {
+    /**
+     * Precargamos los recursos en la escena
+     */
     preload()
     {
         this.resourceLoader = new ResourceLoader(this);
@@ -8,31 +15,29 @@ class MainScene extends Phaser.Scene
 
     create()
     {
-        var bg_1 = this.add.tileSprite(0, 0, windows.width*2, windows.height*2, 'bg-1');
+        let bg_1 = this.add.tileSprite(0, 0, windows.width*2, windows.height*2, 'bg-1');
         bg_1.fixedToCamera = true;
-        //necesitamos un player
+
+        // instanciamos el player
         this.player = new Player(this,50,100);
-        var map = this.make.tilemap({ key: 'map' });
-        var tiles = map.addTilesetImage('Plataformas', 'tiles');
-        
-        var layer2 = map.createLayer('Fondo', tiles, 0, 0);
-        var layer = map.createLayer('Suelo', tiles, 0, 0);
-        //enable collisions for every tile
-        layer.setCollisionByExclusion(-1,true);
-        this.physics.add.collider(this.player,layer);
-        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        this.cameras.main.startFollow(this.player);
-        this.cameras.main.setBounds(0,0,map.widthInPixels,map.heightInPixels);
 
-        this.objecCreator = new ObjectCreator(this, map);
-        this.objecCreator.createObjects();
+        // mapa de tiles     
+        let map = this.make.tilemap({ key: 'map' });
+        let tiles = map.addTilesetImage('Plataformas', 'tiles');
+        
+        // capas
+        let layerFondo = map.createLayer('Fondo', tiles, 0, 0);
+        let layerSuelo = map.createLayer('Suelo', tiles, 0, 0);
 
-    }
-    
-    spriteHit (sprite1, sprite2) {
-        
-        sprite1.destroy();
-        
+        // enable collisions for every tile
+        layerSuelo.setCollisionByExclusion(-1, true);
+        this.physics.add.collider(this.player, layerSuelo);
+
+        // hacemos el setup de objetos que controlan la cámara, la puntuación y cargan las seta en la escena
+        this.setup = new Setup(this, map);
+        this.setup.setupMainCamera(this.cameras.main, 0, 0, map.widthInPixels, map.heightInPixels);
+        this.setup.setupObjects(this);
+        this.setup.setupScore(this);
     }
     
     update (time, delta)
@@ -56,7 +61,12 @@ class MainScene extends Phaser.Scene
         }
     }
 
+    /**
+     * Reiniciamos el nivel cuando el jugador muere.
+     * En nuestro caso cuando se cae al abismo o al agua.
+     */
     restartLevel () {
         this.create()
     }
+
 }

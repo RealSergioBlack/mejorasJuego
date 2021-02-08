@@ -61,7 +61,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
         if (this.cursor.space.isDown && this.body.onFloor()) {
             
-            this.setVelocityY(-10*delta);  // El personaje saltaba demasiado. Reducimos la fuerza a la mitad 
+            this.setVelocityY(-22*delta);  // El personaje saltaba demasiado. Reducimos la fuerza a la mitad 
         }
 
 

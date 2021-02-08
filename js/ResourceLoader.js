@@ -18,7 +18,7 @@ class ResourceLoader {
         this.scene.load.tilemapTiledJSON('map','res/Map.json');
         this.scene.load.image('bg-1', 'res/sky.png');
         this.scene.load.image('sea', 'res/sea.png');
-        this.scene.load.image('player', 'res/idle-1.png');
+        this.scene.load.image('player', 'res/player_init.png');
         //Phaser.Physics.Arcade.Sprite
         // https://gammafp.com/tool/atlas-packer/
         this.scene.load.atlas('sprites_jugador','res/player_anim/player_anim.png',

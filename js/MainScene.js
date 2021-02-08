@@ -15,15 +15,20 @@ class MainScene extends Phaser.Scene
 
     create()
     {
-        let bg_1 = this.add.tileSprite(0, 0, windows.width*2, windows.height*2, 'bg-1');
-        bg_1.fixedToCamera = true;
+		// mapa de tiles     
+        let map = this.make.tilemap({ key: 'map' });
+        let tiles = map.addTilesetImage('Plataformas', 'tiles');
+		
+		// tilemap de fondo
+		let bg = this.add.tileSprite(0,0, map.widthInPixels, map.heightInPixels, 'bg-1');
+        bg.setScale(this.scale2Fit2Scene(map,'bg-1'));  // el bitmap del fondo es mas pequeño que la pantalla. Hay que escalarlo para que ocupe toda la pantalla
+        bg.setPosition(0, 379,0,0);  // se desplaza para que coincidan la esquina superior izquierda del tilesprite y la ventana  
+		bg.fixedToCamera = true;
 
         // instanciamos el player
         this.player = new Player(this,50,100);
 
-        // mapa de tiles     
-        let map = this.make.tilemap({ key: 'map' });
-        let tiles = map.addTilesetImage('Plataformas', 'tiles');
+        
         
         // capas
         let layerFondo = map.createLayer('Fondo', tiles, 0, 0);
@@ -69,4 +74,11 @@ class MainScene extends Phaser.Scene
         this.create()
     }
 
+	 scale2Fit2Scene(map, key)  //devueLve la escala a aplicar para llenar en (Y) el mapa con la textura del fondo
+    {
+        var TextH = this.textures.get(key).frames.__BASE.height;
+        var scale = map.heightInPixels/TextH;
+       
+        return scale;
+    }
 }

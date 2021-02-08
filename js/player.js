@@ -33,9 +33,10 @@ class Player extends Phaser.Physics.Arcade.Sprite
             repeat: -1
         });
         
-		this.body.width = 23;  //Ajuste del tamaño collider (body) para que encaje con el sprite del jugador
-        this.body.height = 50;
-        this.body.setOffset(24,16);
+		//this.body.width = 23;  //Ajuste del tamaño collider (body) para que encaje con el sprite del jugador
+        //this.body.height = 50; // esta seria una solucion que habriamos aplicado antes de que saliera el tema en la clase en directo
+ 
+        this.body.setOffset(30,16); //centramos el colider al jugador
         
     }
 
@@ -60,7 +61,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
         if (this.cursor.space.isDown && this.body.onFloor()) {
             
-            this.setVelocityY(-20*delta);
+            this.setVelocityY(-10*delta);  // El personaje saltaba demasiado. Reducimos la fuerza a la mitad 
         }
 
 

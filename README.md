@@ -20,3 +20,16 @@ Más detalles en los comentarios de los commits que vendrán bien para escribir 
     - El jugador ya no puede moverse a la izquierda y salirse del mapa
     - En caso de caerse el jugador, vuelve a la posicion inicial
     - Modificada velocidad de salto del jugador de forma consistente
+    
+# Mejoras Albert
+
+  * Se han arreglado las capas del tilemap fondo y suelo. Se ha generado un nuevo Map.Json con Tiled
+  * Mejoras jugador:
+    - Ajuste tamaño del collider (body) cargando un bitmap en ResourceLoader.js un bitmap con el tamaño del jugador. Se aplica un offset al body.
+    - En Player.js se ajusta el tamaño de las animaciones (cantidad de frames) del jugador para que no salgan los warnings.
+    -La velocidad de movimiento y salto variaban mucho en funcion del equipo en que se ejecutaba. Se elimina delta. Delta tiene sentido si movemos el jugador por           posición , pero no por velocidad. Esta no debe variar en funcion del framerate
+* Correcciones Cielo de fondo.
+    - Se escala el tamaño del tilemap para que tenga el mismo tamaño en altura que el mapa. Se aplica un offset para que la esquina superior del mapa y la del tieset coincidan.
+    - Como es necesario saber las dimensiones del mapa antes de aplicar el escalaso la lines de declaracion de map se pone al principio.
+
+

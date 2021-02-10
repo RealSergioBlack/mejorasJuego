@@ -10,12 +10,12 @@
     generateFrameNames: Frame missing: walk-17 from texture: sprites_jugador phaser.min.js:1:337942
     generateFrameNames: Frame missing: walk-18 from texture: sprites_jugador phaser.min.js:1:337942
     Refactoring adicional en algunas clases y comentarios añadidos
-    Más detalles en los comentarios de los commits que vendrán bien para escribir brevemente una bonita memoria para Ismael
 
 # Mejoras Sergio
-  Realizada separación de clases y código inicial:
-    Separado el cargado de recursos a una nueva clase la cual permita realziar la carga de recursos
-    Separada creación de objetos (npc/setas) a una nueeva clase la cual permite realziar la carga de objetos del juego
-  Mejorada movilidad del jugador:
-    El jugador ya no puede moverse a la izquierda y salirse del mapa
-    En caso de caerse el jugador, vuelve a la posicion inicial
+Más detalles en los comentarios de los commits que vendrán bien para escribir brevemente una bonita memoria para Ismael
+  * Realizada separación de clases y código inicial:
+    - Separado el cargado de recursos a una nueva clase la cual permita realziar la carga de recursos
+    - Separada creación de objetos (npc/setas) a una nueeva clase la cual permite realziar la carga de objetos del juego
+  * Mejorada movilidad del jugador:
+    - El jugador ya no puede moverse a la izquierda y salirse del mapa
+    - En caso de caerse el jugador, vuelve a la posicion inicial

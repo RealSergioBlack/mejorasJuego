@@ -19,3 +19,4 @@ Más detalles en los comentarios de los commits que vendrán bien para escribir 
   * Mejorada movilidad del jugador:
     - El jugador ya no puede moverse a la izquierda y salirse del mapa
     - En caso de caerse el jugador, vuelve a la posicion inicial
+    - Modificada velocidad de salto del jugador de forma consistente
